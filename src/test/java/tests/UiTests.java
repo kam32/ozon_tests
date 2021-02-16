@@ -79,23 +79,25 @@ public class UiTests extends TestBaseUi {
     @Feature("Cart")
     @DisplayName("Проверка того, что товары успешно добавились в корзину")
     void addToCart() {
-        String product1 = "Электробритва Braun Series 5 50-W1000s, белый, черный";
-        String productUrl1 = url + "/context/detail/id/200248814/";
+        String product1 = "Процессор AMD Ryzen 5 2600 BOX";
+        String productUrl1 = url + "/context/detail/id/149949595/";
         String product2 = "Микроволновая печь Samsung ME-88SUG, 90000009888, серый";
         String productUrl2 = url + "/context/detail/id/149308749/";
 
         step("Открыть ссылку на первый товар", () -> {
             open(productUrl1);
+            sleep(1000);
         });
         step("Добавить первый товар в корзину", () -> {
-            $(byAttribute("data-widget", "webAddToCart")).click();
+            $("[data-widget='webAddToCart'] button").click();
             sleep(1000);
         });
         step("Открыть ссылку на второй товар", () -> {
             open(productUrl2);
+            sleep(1000);
         });
         step("Добавить второй товар в корзину", () -> {
-            $(byAttribute("data-widget", "webAddToCart")).click();
+            $("[data-widget='webAddToCart'] button").click();
             sleep(1000);
         });
         step("Перейти в козину", () -> {
