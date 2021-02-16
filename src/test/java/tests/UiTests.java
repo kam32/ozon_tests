@@ -74,8 +74,8 @@ public class UiTests extends TestBaseUi {
     @Feature("Cart")
     @DisplayName("Проверка того, что товары успешно добавились в корзину")
     void addToCart() {
-        String product1 = "Электрическая зубная щетка Oral-B Vitality 100";
-        String productUrl1 = url + "/product/elektricheskaya-zubnaya-shchetka-oral-b-vitality-100-goluboy-161438274/";
+        String product1 = "Электробритва Braun Series 5 50-W1000s, белый, черный";
+        String productUrl1 = url + "/context/detail/id/200248814/";
         String product2 = "Микроволновая печь Samsung ME-88SUG, 90000009888, серый";
         String productUrl2 = url + "/context/detail/id/149308749/";
 
