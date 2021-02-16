@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.AllureId;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -20,6 +21,7 @@ public class ApiTests {
     }
 
     @Test
+    @AllureId("1680")
     @DisplayName("Неуспешная авторизация")
     void unsuccessfulLogin() {
         String body = readStringFromFile("src/test/resources/json/unsuccessfulLogin.json");
@@ -39,6 +41,7 @@ public class ApiTests {
     }
 
     @Test
+    @AllureId("1681")
     @DisplayName("Добавление товара в корзину")
     void addToCart() {
         String body = "[{\"id\":139907347,\"quantity\":1}]";
@@ -60,6 +63,7 @@ public class ApiTests {
     }
 
     @Test
+    @AllureId("1682")
     @DisplayName("Изменение города")
     void changeCity() {
         String body = readStringFromFile("src/test/resources/json/changeCity.json");

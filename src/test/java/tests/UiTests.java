@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -16,6 +17,7 @@ public class UiTests extends TestBaseUi {
     String url = config.ConfigHelper.getWebUrl();
 
     @Test
+    @AllureId("1685")
     @Feature("Week Promo")
     @DisplayName("Проверяем количества элементов в блоке \"Предложения недели!\"")
     void checkWeekPromoBlockSize() {
@@ -30,6 +32,7 @@ public class UiTests extends TestBaseUi {
 
 
     @Test
+    @AllureId("1686")
     @Feature("Search")
     @DisplayName("Проверка наличия среди результатов поиска процессора \"Процессор AMD Ryzen 5 2600 BOX\"")
     void searchTest() {
@@ -46,6 +49,7 @@ public class UiTests extends TestBaseUi {
     }
 
     @Test
+    @AllureId("1687")
     @Feature("Search Filters")
     @DisplayName("Проверка выделения чекбоксов при поиске")
     void searchTestWithFilters() {
@@ -71,6 +75,7 @@ public class UiTests extends TestBaseUi {
     }
 
     @Test
+    @AllureId("1683")
     @Feature("Cart")
     @DisplayName("Проверка того, что товары успешно добавились в корзину")
     void addToCart() {
@@ -105,6 +110,7 @@ public class UiTests extends TestBaseUi {
     }
 
     @Test
+    @AllureId("1684")
     @Feature("Location")
     @DisplayName("Проверка смены города")
     void changeCity() {
