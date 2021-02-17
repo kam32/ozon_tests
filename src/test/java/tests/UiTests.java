@@ -53,8 +53,6 @@ public class UiTests extends TestBaseUi {
     @Feature("Search Filters")
     @DisplayName("Проверка выделения чекбоксов при поиске")
     void searchTestWithFilters() {
-
-
         SelenideElement searchFilters = $(byAttribute("data-widget", "searchResultsFilters"));
 
         step("Открыть ссылку с результатами поиска", () -> {
@@ -90,11 +88,9 @@ public class UiTests extends TestBaseUi {
         step("Добавить первый товар в корзину", () -> {
             $("[data-widget='webAddToCart']").click();
             sleep(1000);
-
         });
         step("Открыть ссылку на второй товар", () -> {
             open(productUrl2);
-
         });
         step("Добавить второй товар в корзину", () -> {
             $("[data-widget='webAddToCart']").click();
