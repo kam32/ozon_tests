@@ -86,18 +86,18 @@ public class UiTests extends TestBaseUi {
 
         step("Открыть ссылку на первый товар", () -> {
             open(productUrl1);
-            sleep(1000);
         });
         step("Добавить первый товар в корзину", () -> {
-            $("[data-widget='webAddToCart'] button").click();
+            $("[data-widget='webAddToCart']").click();
             sleep(1000);
+
         });
         step("Открыть ссылку на второй товар", () -> {
             open(productUrl2);
-            sleep(1000);
+
         });
         step("Добавить второй товар в корзину", () -> {
-            $("[data-widget='webAddToCart'] button").click();
+            $("[data-widget='webAddToCart']").click();
             sleep(1000);
         });
         step("Перейти в козину", () -> {
