@@ -46,11 +46,8 @@ public class ApiTests {
     void addToCart() {
         String body = "[{\"id\":139907347,\"quantity\":1}]";
 
-        String cookie = readStringFromFile("src/test/resources/cookies/addToCart.txt");
-
         Spec.request()
                 .body(body)
-                .cookie(cookie)
                 .when()
                 .post("/api/composer-api.bx/_action/addToCart")
                 .then()
@@ -67,10 +64,9 @@ public class ApiTests {
     @DisplayName("Изменение города")
     void changeCity() {
         String body = readStringFromFile("src/test/resources/json/changeCity.json");
-        String cookie = readStringFromFile("src/test/resources/cookies/changeCity.txt");
+
 
         Spec.request()
-                .cookie(cookie)
                 .body(body)
                 .when()
                 .post("/api/location/v2/user/location")
