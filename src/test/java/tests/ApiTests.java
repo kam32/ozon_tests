@@ -1,5 +1,6 @@
 package tests;
 
+import helpers.ApiHelper;
 import io.qameta.allure.AllureId;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
@@ -23,21 +24,17 @@ public class ApiTests {
     @Test
     @AllureId("1680")
     @DisplayName("Неуспешная авторизация")
-    void unsuccessfulLogin() {
-        String body = readStringFromFile("src/test/resources/json/unsuccessfulLogin.json");
-        String cookie = readStringFromFile("src/test/resources/cookies/unsuccessfulLogin.txt");
+    void unsuccessfulLoginSeller() {
+        String body = "{\"user_name\":\"fafcac@afjpafj.com\",\"password\":\"fafac\"}";
 
         Spec.request()
                 .body(body)
-                .cookie(cookie)
                 .when()
-                .post("/api/composer-api.bx/_action/emailOtpEntry")
+                .post("https://seller.ozon.ru/api/site/user/login")
                 .then()
-                .statusCode(200)
+                .statusCode(400)
                 .log().body()
-                .body("error", is("Пользователь с указанным email не найден"))
-                .body("data.accessToken", is(""))
-        ;
+                .body("error.code", is("FAIL_LOGIN"));
     }
 
     @Test
@@ -48,6 +45,7 @@ public class ApiTests {
 
         Spec.request()
                 .body(body)
+                .cookies(new ApiHelper().getCookies())
                 .when()
                 .post("/api/composer-api.bx/_action/addToCart")
                 .then()
@@ -65,9 +63,9 @@ public class ApiTests {
     void changeCity() {
         String body = readStringFromFile("src/test/resources/json/changeCity.json");
 
-
         Spec.request()
                 .body(body)
+                .cookies(new ApiHelper().getCookies())
                 .when()
                 .post("/api/location/v2/user/location")
                 .then()
