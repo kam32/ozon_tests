@@ -3,11 +3,11 @@ package tests;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.ClickOptions.usingJavaScript;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -87,14 +87,14 @@ public class UiTests extends TestBaseUi {
             open(productUrl1);
         });
         step("Добавить первый товар в корзину", () -> {
-            $("[data-widget='webAddToCart'] button").click();
+            $("[data-widget='webAddToCart']").$(withText("корзин")).click(usingJavaScript().offset(2, 1));
             sleep(1000);
         });
         step("Открыть ссылку на второй товар", () -> {
             open(productUrl2);
         });
         step("Добавить второй товар в корзину", () -> {
-            $("[data-widget='webAddToCart'] button").click();
+            $("[data-widget='webAddToCart']").$(withText("корзин")).click(usingJavaScript().offset(2, 1));
             sleep(1000);
         });
         step("Перейти в корзину", () -> {
@@ -142,7 +142,6 @@ public class UiTests extends TestBaseUi {
             $(byAttribute("data-widget", "webPrice")).shouldHave(text("5 000"));
         });
     }
-
 }
 
 
