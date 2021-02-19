@@ -3,6 +3,7 @@ package tests;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -75,6 +76,7 @@ public class UiTests extends TestBaseUi {
     @Test
     @AllureId("1683")
     @Feature("Cart")
+    @Disabled("Нестабильный тест")
     @DisplayName("Проверка того, что товары успешно добавились в корзину")
     void addToCart() {
         String product1 = "Процессор AMD Ryzen 5 2600 BOX";
