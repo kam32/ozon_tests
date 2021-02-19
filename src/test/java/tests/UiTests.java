@@ -76,7 +76,6 @@ public class UiTests extends TestBaseUi {
     @Test
     @AllureId("1683")
     @Feature("Cart")
-    @Disabled("Нестабильный тест")
     @DisplayName("Проверка того, что товары успешно добавились в корзину")
     void addToCart() {
         String product1 = "Процессор AMD Ryzen 5 2600 BOX";
@@ -88,17 +87,17 @@ public class UiTests extends TestBaseUi {
             open(productUrl1);
         });
         step("Добавить первый товар в корзину", () -> {
-            $("[data-widget='webAddToCart']").click();
+            $("[data-widget='webAddToCart'] button").click();
             sleep(1000);
         });
         step("Открыть ссылку на второй товар", () -> {
             open(productUrl2);
         });
         step("Добавить второй товар в корзину", () -> {
-            $("[data-widget='webAddToCart']").click();
+            $("[data-widget='webAddToCart'] button").click();
             sleep(1000);
         });
-        step("Перейти в козину", () -> {
+        step("Перейти в корзину", () -> {
             $(byAttribute("data-widget", "cart")).click();
         });
         step("Проверить, что корзина содержит товар " + product1, () -> {
@@ -125,6 +124,22 @@ public class UiTests extends TestBaseUi {
         });
         step("Проверить, что в качестве города выбран Новосибирск", () -> {
             $(byAttribute("data-widget", "topBar")).shouldHave(text("Новосибирск"));
+        });
+    }
+
+    @Test
+    @Feature("Certificate")
+    @DisplayName("Проверить изменение стоимости после выбора другого сертификата")
+    void checkPriceCertificateAfterChange() {
+        step("Открыть страницу с сертификатами", () -> {
+            open(url+"/context/detail/id/135382627/");
+        });
+        step("Выбрать сертификат за 5000 руб.", () -> {
+            $(byAttribute("data-widget", "webAspects")).
+                    $(byText("5000")).closest("div").parent().click();
+        });
+        step("Проверить, что поменялась стоимость сертификата над кнопкой добавления в корзину", () -> {
+            $(byAttribute("data-widget", "webPrice")).shouldHave(text("5 000"));
         });
     }
 
