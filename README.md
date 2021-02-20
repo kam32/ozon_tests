@@ -14,6 +14,7 @@ Allure Report: https://jenkins.autotests.cloud/job/C03-kam75-ozon/allure
 * Allure TestOps(EE)
 * Telegram Notifications
 * Owner
+* Jira
 
 ## Скриншоты
 
