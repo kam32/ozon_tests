@@ -19,7 +19,7 @@ Allure Report: https://jenkins.autotests.cloud/job/C03-kam75-ozon/allure
 
 ### Selenoid
 ***
-![alt-Selenoid](src/test/resources/images/selenoid.gif "Selenoid")
+![alt-Selenoid](src/test/resources/images/Selenoid.gif "Selenoid")
 ### Allure Report 
 ***
 ![alt-AllureReport](src/test/resources/images/AllureReport1.png "AllureReport")
@@ -29,7 +29,10 @@ Allure Report: https://jenkins.autotests.cloud/job/C03-kam75-ozon/allure
 ***
 ![alt-AllureTestOps](src/test/resources/images/AllureTestOps.png "AllureTestOps")
 ![alt-AllureTestOpsv](src/test/resources/images/AllureTestOps2.png "AllureTestOps")
-![alt-AllureTestOpsv](src/test/resources/images/AllureTestOp3.png "AllureTestOps")
+![alt-AllureTestOpsv](src/test/resources/images/AllureTestOps3.png "AllureTestOps")
+### Jira
+***
+![alt-TelegramNotifications](src/test/resources/images/Jira.png "AllureTestOps")
 ### Telegram Notifications
 ***
 ![alt-TelegramNotifications](src/test/resources/images/Telegram.png "AllureTestOps")
