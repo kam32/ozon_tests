@@ -3,12 +3,14 @@ package tests;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.ClickOptions.usingJavaScript;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.checked;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -46,7 +48,6 @@ public class UiTests extends TestBaseUi {
         step("Проверить, что среди результатов есть \"Процессор AMD Ryzen 5 2600 BOX\" ", () -> {
             $(byAttribute("data-widget", "row"), 1).shouldHave(text("Процессор AMD Ryzen 5 2600 BOX"));
         });
-
     }
 
     @Test
@@ -74,6 +75,7 @@ public class UiTests extends TestBaseUi {
     }
 
     @Test
+    @Disabled("Падает при записи видео")
     @AllureId("1683")
     @Feature("Cart")
     @DisplayName("Проверка того, что товары успешно добавились в корзину")
@@ -128,11 +130,12 @@ public class UiTests extends TestBaseUi {
     }
 
     @Test
+    @AllureId("1692")
     @Feature("Certificate")
     @DisplayName("Проверить изменение стоимости после выбора другого сертификата")
     void checkPriceCertificateAfterChange() {
         step("Открыть страницу с сертификатами", () -> {
-            open(url+"/context/detail/id/135382627/");
+            open(url + "/context/detail/id/135382627/");
         });
         step("Выбрать сертификат за 5000 руб.", () -> {
             $(byAttribute("data-widget", "webAspects")).

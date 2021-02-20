@@ -8,8 +8,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-import static config.ConfigHelper.getWebVideoStorage;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static config.ConfigHelper.getWebVideoStorage;
 
 
 public class AttachmentsHelper {

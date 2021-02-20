@@ -1,8 +1,8 @@
 package tests;
 
-import helpers.ApiHelper;
 import io.qameta.allure.AllureId;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -10,9 +10,10 @@ import org.junit.jupiter.api.Test;
 import spec.Spec;
 
 import static config.ConfigHelper.getWebUrl;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
-import static utils.FileUtils.readStringFromFile;
+import static spec.Spec.request;
 
 @Tag("api")
 public class ApiTests {
@@ -27,7 +28,7 @@ public class ApiTests {
     void unsuccessfulLoginSeller() {
         String body = "{\"user_name\":\"fafcac@afjpafj.com\",\"password\":\"fafac\"}";
 
-        Spec.request()
+        request()
                 .body(body)
                 .when()
                 .post("https://seller.ozon.ru/api/site/user/login")
@@ -37,41 +38,19 @@ public class ApiTests {
                 .body("error.code", is("FAIL_LOGIN"));
     }
 
+    @AllureId("1694")
     @Test
-    @AllureId("1681")
-    @DisplayName("Добавление товара в корзину")
-    void addToCart() {
-        String body = "[{\"id\":139907347,\"quantity\":1}]";
-
+    @DisplayName("Проверка содержания в категории 89268908  товара\"Пленка самоклеящаяся канцелярская\"")
+    void checkCategoryName() {
         Spec.request()
-                .body(body)
-                .cookies(new ApiHelper().getCookies())
+                .header("Client-Id", "836")
+                .header("Api-Key", "0296d4f2-70a1-4c09-b507-904fd05567b9")
                 .when()
-                .post("/api/composer-api.bx/_action/addToCart")
-                .then()
-                .statusCode(200)
-                .log().body()
-                .body("success", is(true))
-                .body("cart.cartItems.id", hasItem(139907347))
-                .body("cart.cartItems.qty", hasItem(1));
-        ;
-    }
-
-    @Test
-    @AllureId("1682")
-    @DisplayName("Изменение города")
-    void changeCity() {
-        String body = readStringFromFile("src/test/resources/json/changeCity.json");
-
-        Spec.request()
-                .body(body)
-                .cookies(new ApiHelper().getCookies())
-                .when()
-                .post("/api/location/v2/user/location")
+                .get("https://cb-api.ozonru.me/v1/categories/tree/89268908")
                 .then()
                 .log().body()
                 .statusCode(200)
-                .body("areaId", is(22671))
-                .body("city", is("Челябинск"));
+                .body("result.category_id", hasItem(89268908))
+                .body("result.title", hasItem("Пленка самоклеящаяся канцелярская"));
     }
 }
