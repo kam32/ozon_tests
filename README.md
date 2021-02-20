@@ -33,10 +33,10 @@ Allure Report: https://jenkins.autotests.cloud/job/C03-kam75-ozon/allure
 ![alt-AllureTestOpsv](src/test/resources/images/AllureTestOps3.png "AllureTestOps")
 ### Jira
 ***
-![alt-TelegramNotifications](src/test/resources/images/Jira.png "AllureTestOps")
+![alt-Jira](src/test/resources/images/Jira.png "Jira")
 ### Telegram Notifications
 ***
-![alt-TelegramNotifications](src/test/resources/images/Telegram.png "AllureTestOps")
+![alt-TelegramNotifications](src/test/resources/images/Telegram.png "Telegram")
 
 
 
