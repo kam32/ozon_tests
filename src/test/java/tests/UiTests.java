@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+import static java.time.Duration.ofSeconds;
 
 @Tag("ui")
 public class UiTests extends TestBaseUi {
@@ -125,7 +126,7 @@ public class UiTests extends TestBaseUi {
             $(byText("Новосибирск, Новосибирская область")).click();
         });
         step("Проверить, что в качестве города выбран Новосибирск", () -> {
-            $(byAttribute("data-widget", "topBar")).shouldHave(text("Новосибирск"));
+            $(byAttribute("data-widget", "topBar")).shouldHave(text("Новосибирск"), ofSeconds(5));
         });
     }
 

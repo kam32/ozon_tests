@@ -1,26 +1,17 @@
 package tests;
 
 import io.qameta.allure.AllureId;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import spec.Spec;
 
-import static config.ConfigHelper.getWebUrl;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static spec.Spec.request;
 
 @Tag("api")
 public class ApiTests {
-    @BeforeAll
-    static void beforeAll() {
-        RestAssured.baseURI = getWebUrl();
-    }
 
     @Test
     @AllureId("1680")
