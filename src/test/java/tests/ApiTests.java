@@ -20,12 +20,13 @@ public class ApiTests {
     @AllureId("1680")
     @DisplayName("Неуспешная авторизация")
     void unsuccessfulLoginSeller() {
-        Map<String, String> credentials = new HashMap<String, String>();
-        credentials.put("login", "{\"user_name\":\"fafaca@apjfa.com\",");
-        credentials.put("password", "\"password\":\"pjcpajcaf\"}");
+        Map<String, String> credentials = new HashMap<String, String>() {{
+            put("user_name", "fafaca@apjfa.com");
+            put("password", "pjcpajcaf");
+        }};
 
         request()
-                .body(credentials.get("login") + credentials.get("password"))
+                .body(credentials)
                 .when()
                 .post("https://seller.ozon.ru/api/site/user/login")
                 .then()
