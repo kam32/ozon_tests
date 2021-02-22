@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
@@ -11,10 +12,10 @@ import static helpers.DriverHelper.*;
 
 public class TestBaseUi {
 
-
     @BeforeAll
     public static void beforeAll() {
         configureDriver();
+        Configuration.baseUrl = config.ConfigHelper.getWebUrl();
     }
 
     @AfterEach

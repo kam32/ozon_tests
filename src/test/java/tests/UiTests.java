@@ -18,7 +18,6 @@ import static java.time.Duration.ofSeconds;
 
 @Tag("ui")
 public class UiTests extends TestBaseUi {
-    String url = config.ConfigHelper.getWebUrl();
 
     @Test
     @AllureId("1685")
@@ -26,14 +25,13 @@ public class UiTests extends TestBaseUi {
     @DisplayName("Проверяем количества элементов в блоке \"Предложения недели!\"")
     void checkWeekPromoBlockSize() {
         step("Открываем главную страницу", () -> {
-            open(url);
+            open("");
         });
         step("Проверка равенства количества элементов 6 ", () -> {
-            $(byText("Предложения недели!")).parent().sibling(0).
-                    $$(byAttribute("style^", "width")).shouldHaveSize(6);
+            $(byText("Предложения недели!")).parent().sibling(0)
+                    .$$(byAttribute("style^", "width")).shouldHaveSize(6);
         });
     }
-
 
     @Test
     @AllureId("1686")
@@ -41,7 +39,7 @@ public class UiTests extends TestBaseUi {
     @DisplayName("Проверка наличия среди результатов поиска процессора \"Процессор AMD Ryzen 5 2600 BOX\"")
     void searchTest() {
         step("Открываем главную страницу", () -> {
-            open(url);
+            open("");
         });
         step("Ввести в поле поиска \"процессор\" ", () -> {
             $(byName("search")).val("процессор").pressEnter();
@@ -59,7 +57,7 @@ public class UiTests extends TestBaseUi {
         SelenideElement searchFilters = $(byAttribute("data-widget", "searchResultsFilters"));
 
         step("Открыть ссылку с результатами поиска", () -> {
-            open(url + "/category/ventilyatory-10724/?from_global=true&text=вентилятор");
+            open("/category/ventilyatory-10724/?from_global=true&text=вентилятор");
         });
         step("Выбрать фильтр \"Homgeek\" ", () -> {
             searchFilters.$(byText("Homgeek")).click();
@@ -82,9 +80,9 @@ public class UiTests extends TestBaseUi {
     @DisplayName("Проверка того, что товары успешно добавились в корзину")
     void addToCart() {
         String product1 = "Процессор AMD Ryzen 5 2600 BOX";
-        String productUrl1 = url + "/context/detail/id/149949595/";
+        String productUrl1 = "/context/detail/id/149949595/";
         String product2 = "Микроволновая печь Samsung ME-88SUG, 90000009888, серый";
-        String productUrl2 = url + "/context/detail/id/149308749/";
+        String productUrl2 = "/context/detail/id/149308749/";
 
         step("Открыть ссылку на первый товар", () -> {
             open(productUrl1);
@@ -117,7 +115,7 @@ public class UiTests extends TestBaseUi {
     @DisplayName("Проверка смены города")
     void changeCity() {
         step("Открыть главную страницу", () -> {
-            open(url);
+            open("");
         });
         step("Кликнуть на город в левом верхнем углу", () -> {
             $(byAttribute("data-widget", "topBar")).$(("div>div"), 1).click();
@@ -136,7 +134,7 @@ public class UiTests extends TestBaseUi {
     @DisplayName("Проверить изменение стоимости после выбора другого сертификата")
     void checkPriceCertificateAfterChange() {
         step("Открыть страницу с сертификатами", () -> {
-            open(url + "/context/detail/id/135382627/");
+            open("/context/detail/id/135382627/");
         });
         step("Выбрать сертификат за 5000 руб.", () -> {
             $(byAttribute("data-widget", "webAspects")).

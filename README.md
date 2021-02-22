@@ -16,6 +16,7 @@
 ## Скриншоты
 ***
 Запуск тестов организован в Jenkins. Посмотреть можно по ссылке https://jenkins.autotests.cloud/job/C03-kam75-ozon/ 
+Тесты могут запускаться параллельно.
 ***
 ### Allure Report 
 ***
@@ -38,7 +39,7 @@
 ![alt-AllureTestOpsv](src/test/resources/images/AllureTestOps3.png "AllureTestOps")
 ### Jira
 ***
-Тест-кейсы Allure TestOps дополнительно экспортированы в задачу Jira.
+Создана задача в Jira. К ней добавлены тест-кейсты, информация о запусках тестов.
 ***
 ![alt-Jira](src/test/resources/images/Jira.png "Jira")
 ***

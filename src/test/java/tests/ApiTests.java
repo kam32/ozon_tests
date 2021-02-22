@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import spec.Spec;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static spec.Spec.request;
@@ -17,10 +20,12 @@ public class ApiTests {
     @AllureId("1680")
     @DisplayName("Неуспешная авторизация")
     void unsuccessfulLoginSeller() {
-        String body = "{\"user_name\":\"fafcac@afjpafj.com\",\"password\":\"fafac\"}";
+        Map<String, String> credentials = new HashMap<String, String>();
+        credentials.put("login", "{\"user_name\":\"fafaca@apjfa.com\",");
+        credentials.put("password", "\"password\":\"pjcpajcaf\"}");
 
         request()
-                .body(body)
+                .body(credentials.get("login") + credentials.get("password"))
                 .when()
                 .post("https://seller.ozon.ru/api/site/user/login")
                 .then()
@@ -31,7 +36,7 @@ public class ApiTests {
 
     @AllureId("1694")
     @Test
-    @DisplayName("Проверка содержания в категории 89268908  товара\"Пленка самоклеящаяся канцелярская\"")
+    @DisplayName("Проверка содержания в категории 89268908 товара \"Пленка самоклеящаяся канцелярская\"")
     void checkCategoryName() {
         Spec.request()
                 .header("Client-Id", "836")
