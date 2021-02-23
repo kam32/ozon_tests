@@ -3,7 +3,6 @@ package tests;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -74,7 +73,6 @@ public class UiTests extends TestBaseUi {
     }
 
     @Test
-    @Disabled("Падает при записи видео")
     @AllureId("1683")
     @Feature("Cart")
     @DisplayName("Проверка того, что товары успешно добавились в корзину")
