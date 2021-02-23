@@ -20,7 +20,7 @@
 ***
 ### Allure Report 
 ***
-Отчет о прохождении тестов Allure Report можно посмотреть по ссылке https://jenkins.autotests.cloud/job/C03-kam75-ozon/59/allure/
+Отчет о прохождении тестов Allure Report можно посмотреть по ссылке https://jenkins.autotests.cloud/job/C03-kam75-ozon/70/allure/
 ***
 ![alt-AllureReport](src/test/resources/images/AllureReport1.png "AllureReport")
 ![alt-AllureReport](src/test/resources/images/AllureReport2.png "AllureReport")
