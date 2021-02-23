@@ -34,14 +34,15 @@
 ***
 В качестве системы управления тестами использован Allure TestOps.  
 ***
-![alt-AllureTestOps](src/test/resources/images/AllureTestOps.png "AllureTestOps")
+![alt-AllureTestOps](src/test/resources/images/AllureTestOps1.png "AllureTestOps")
 ![alt-AllureTestOpsv](src/test/resources/images/AllureTestOps2.png "AllureTestOps")
 ![alt-AllureTestOpsv](src/test/resources/images/AllureTestOps3.png "AllureTestOps")
 ### Jira
 ***
 Создана задача в Jira. К ней добавлены тест-кейсты, информация о запусках тестов.
 ***
-![alt-Jira](src/test/resources/images/Jira.png "Jira")
+![alt-Jira](src/test/resources/images/Jira1.png "Jira")
+![alt-Jira](src/test/resources/images/Jira2.png "Jira")
 ***
 ### Telegram Notifications
 ***
